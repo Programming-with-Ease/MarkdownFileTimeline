@@ -33,9 +33,21 @@ namespace mft
                             line = $"{day.Date.ToString("yyyy-MM-dd ddd", CultureInfo.InvariantCulture)} | ";
                         else
                             line = $"               | ";
-                        yield return line + $"{files[i].Filename} ({files[i].NumberOfLines} line(s))";
+                        yield return line + $"{files[i].Filename}{Excerpt(files[i])} ({files[i].NumberOfLines} line(s))";
                     }
                 }
+            }
+
+
+            string Excerpt(MDFile file) {
+                if (file.Excerpt == "") return "";
+
+                if (file.Filename.Length <= 5) return file.Excerpt;
+                
+                var digits = file.Filename.ToCharArray().Where(x => char.IsDigit(x) || char.IsPunctuation(x) || char.IsSymbol(x) || char.IsWhiteSpace(x));
+                if ((double) digits.Count() / file.Filename.Length < 0.4) return "";
+                
+                return " / " + file.Excerpt;
             }
         }
 

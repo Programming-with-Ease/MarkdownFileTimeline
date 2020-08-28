@@ -51,11 +51,12 @@ namespace mft.tests
             result[1].Number.Should().Be(34);
             result[1].Days.ToArray().Length.Should().Be(4);
             result[1].Days.First().Date.Should().Be(new DateTime(2020, 8, 23));
+            result[1].Days.First().Files.First().Excerpt.Should().Be("xCCc");
             result[1].Days.First().Files.Count().Should().Be(3);
 
             
             MDFile new_File(string name, DateTime date)
-                => new MDFile(name, name.Length, date, date);
+                => new MDFile(name, "x" + name, name.Length, date, date);
         }
     }
 }
