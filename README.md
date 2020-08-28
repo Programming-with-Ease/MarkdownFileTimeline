@@ -43,3 +43,12 @@ Wed 29.07.2020 | 11. Final note on this day (6 lines)
   * jump to a certain date, and 
   * open them with the preferred Markdown editor.
 * Single days without files are still listed in the timeline, but several days (>7 days) without files will be replaced by `…`.
+
+# Installation
+
+1. Install .NET Core 3.1 if it's not already on your machine. Download it for all platforms [from here](https://dotnet.microsoft.com/download/dotnet-core).
+2. Download the latest release ZIP-file of mft [from this repository](https://github.com/Programming-with-Ease/MarkdownFileTimeline/releases).
+3. Unpack the ZIP-file where it's convenient. Maybe put it close to your note files.
+4. Run the tool in a terminal/shell window: `dotnet exec mft.dll .`
+   * Prepend a path to `mft.dll` if it's not in the same directory the terminal/shell is opened in.
+   * Replace the `.` with a path to the root directory of your note files if they are not in the same directory as the terminal/shell is opened in.
