@@ -19,6 +19,7 @@ namespace mft.tests
             
             result.Length.Should().Be(6);
 
+
             var r = result.First(x => x.Filename == "1 With a note");
             r.Path.Should().Be("./sampleFiles/a subdir/a deeper subdir");
             r.NumberOfLines.Should().Be(10);
@@ -28,9 +29,6 @@ namespace mft.tests
             r.NumberOfLines.Should().Be(7);
             r.CreatedAt.Should().Be(new DateTime(2020, 5, 5));
             r.LastChangedAt.Should().Be(new DateTime(2020, 7, 14));
-            
-            r = result.First(x => x.Filename == "5 Another relevant file ALIAS");
-            r.NumberOfLines.Should().Be(1);
         }
     }
 }
