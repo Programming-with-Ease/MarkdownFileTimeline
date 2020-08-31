@@ -17,7 +17,7 @@ namespace mft.tests
             var sut = new MDFileCollector();
             var result = sut.Collect(".").ToArray();
             
-            result.Length.Should().Be(5);
+            result.Length.Should().Be(6);
 
             var r = result.First(x => x.Filename == "1 With a note");
             r.Path.Should().Be("./sampleFiles/a subdir/a deeper subdir");
@@ -28,6 +28,9 @@ namespace mft.tests
             r.NumberOfLines.Should().Be(7);
             r.CreatedAt.Should().Be(new DateTime(2020, 5, 5));
             r.LastChangedAt.Should().Be(new DateTime(2020, 7, 14));
+            
+            r = result.First(x => x.Filename == "5 Another relevant file ALIAS");
+            r.NumberOfLines.Should().Be(1);
         }
     }
 }

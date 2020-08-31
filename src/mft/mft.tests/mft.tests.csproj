@@ -40,6 +40,9 @@
       <None Update="sampleFiles\a subdir\3 Yes another file.md">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="sampleFiles\5 Another relevant file ALIAS.md">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
