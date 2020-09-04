@@ -33,7 +33,7 @@ namespace mft
                             line = $"{day.Date.ToString("yyyy-MM-dd ddd", CultureInfo.InvariantCulture)} | ";
                         else
                             line = $"               | ";
-                        yield return line + $"{files[i].Filename}{Excerpt(files[i])} ({files[i].NumberOfLines} line(s))";
+                        yield return line + $"{files[i].Filename}{Excerpt(files[i])} ({files[i].NumberOfLines} line(s)";
                     }
                 }
             }

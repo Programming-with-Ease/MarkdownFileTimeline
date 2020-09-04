@@ -10,11 +10,15 @@ namespace mft
     {
         public IEnumerable<MDFile> Collect(string path)
             => Directory.GetFiles(path, "*.md", SearchOption.AllDirectories)
+                        .Where(IsVisible)
                         .Select(Load);
 
 
-        private MDFile Load(string filepath)
-        {
+        private static bool IsVisible(string filepath)
+            => File.GetAttributes(filepath).HasFlag(FileAttributes.Hidden) == false;
+        
+        
+        private MDFile Load(string filepath) {
             string[] lines;
             string excerpt;
 
@@ -24,7 +28,7 @@ namespace mft
             }
             catch (Exception) {
                 lines = new string[0];
-                excerpt = "*** POSSIBLY SYMLINK FILE. COULD NOT LOAD.";
+                excerpt = "*** COULD NOT BE LOADED";
             }
             
             return new MDFile(filepath,
